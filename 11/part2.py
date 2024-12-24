@@ -4,7 +4,8 @@ with open('input.txt', 'r') as file:
 data = data.strip().split(' ')
 stones = [int(x) for x in data]
 
-num_iter = 25
+num_iter = 75
+previous_num = len(stones)
 for i in range(num_iter):
     stones_to_add = []
     stone_ind = 0
@@ -23,5 +24,7 @@ for i in range(num_iter):
             stones[stone_ind] *= 2024
         stone_ind += 1
     stones.extend(stones_to_add)
+    print(len(stones), len(stones)/previous_num, i)
+    previous_num = len(stones)
 
 print(len(stones))
